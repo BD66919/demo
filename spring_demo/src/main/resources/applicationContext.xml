@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   <!-- 注入bean对象，可以扫描注解，简化配置 -->
+    <context:component-scan base-package="service"/>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="location" value="resource.properties"/>
+<!--        相当于将bean为propertyConfiguer中的方法setLocation传入参数resource.properties-->
+    </bean>
+    <bean id="bean1" class="service.Bean1">
+        <property name="property1" value="bean1_a"/>
+        <property name="property2" value="bean1_b"/>
+        <property name="bean2" ref="bean2"/>
+    </bean>
+
+
+    <bean id="bean2" class="service.Bean2">
+<!--        <property name="bean2_property" value="bean2_c"/>-->
+    </bean>
+
+
+
+    <!-- 扫描包自动注入 -->
+<!--   <context:component-scan base-package="service.*"></context:component-scan>-->
+
+   <!-- 导入相关资源包 -->
+<!--   <import resource="spring-dubbo-provider.xml"/>-->
+
+</beans>
