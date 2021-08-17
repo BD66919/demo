@@ -8,10 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="redies_demo" />
         <module name="test" />
+        <module name="java_demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="redies_demo" target="6" />
+      <module name="java_demo" target="8" />
+      <module name="redies_demo" target="8" />
       <module name="test" target="6" />
     </bytecodeTargetLevel>
   </component>
